@@ -14,7 +14,7 @@ We assume that
 
 ![alt text](images/flow.png)
 
-For the training phase, we follow the dataset’s original fold split by performing 9-fold cross-validation on folds 1–9 for model selection. Fold 10 is reserved as a hold-out test set for final evaluation.
+For the training phase, we follow the dataset’s original fold split by performing 10-fold cross-validation on folds 1–10 for model selection. Fold 10 will be also reserved as a hold-out test set for final evaluation.
 
 ---
 
