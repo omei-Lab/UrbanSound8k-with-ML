@@ -39,7 +39,7 @@ Here we introduce our workflow in this project.
 |   3   |     Dog bark     |   8   |     Siren     |
 |   4   |     Drilling     |   9   |  Street music |
 
-The distribution of classes is shown below. Most classes contain around 1,000 samples. However, there is a noticeable imbalance in the `car_horn` and `gun_shot` classes, which each contain only about 400 samples. Also, the dataset is already splitted into **10 folds** for performing cross validation. 
+The distribution of classes is shown below. Most classes contain around 1,000 samples. However, there is a noticeable imbalance in the `car_horn` and `gun_shot` classes, which contain 429 and 374 samples, respectively. Also, the dataset is already splitted into **10 folds** for performing cross validation. 
 
 ![alt text](images/class_dist.png)
 
@@ -223,16 +223,11 @@ This section highlights several key observations and design choices throughout t
 
 ### 1. Class Imbalance
 
-Although the dataset contains imbalance in certain classes, its impact on classification performance appears to be limited.
-- `car_horn`: 429 samples.
-
-- `gun_shot`: 374 samples.
-
- Interestingly, classes with relatively few samples still achieve high F1-scores. We hypothesize that this is due to their **acoustically distinctive nature**. For instance, gun shot is a short, high-energy transient sound that rarely overlaps with other ambient noises. These sounds are easy to detect even with limited training data, suggesting that intrinsic sound characteristics may mitigate the effects of class imbalance in some cases.
+Although the dataset contains imbalance in certain classes, its impact on classification performance appears to be limited. Interestingly, classes with relatively few samples still achieve high F1-scores. We hypothesize that this is due to their **acoustically distinctive nature**. For instance, gun shot is a short, high-energy transient sound that rarely overlaps with other ambient noises. These sounds are easy to detect even with limited training data, suggesting that intrinsic sound characteristics may mitigate the effects of class imbalance in some cases.
 
  ### 2. Computational Complexity Trade-off
 
- One of the core motivations of this project was to explore **lightweight alternatives** to deep learning (DL) models. While CNN-based architectures are standard for audio classification, they require significant computational resources and are less interpretable. In contrast, traditional machine learning (ML) models are much faster to train and easier to analyze. By applying a stacking ensemble, we found that ML models can reach comparable performance (up to 65% accuracy) while maintaining low inference cost. This presents a practical trade-off between complexity and accuracy—especially valuable in edge applications or limited-resource environments.
+ One of the core motivations of this project was to explore **lightweight alternatives** to deep learning (DL) models. While CNN-based architectures are standard for audio classification, they require significant computational resources and are less interpretable. In contrast, traditional machine learning (ML) models are much faster to train and easier to analyze. By applying a stacking ensemble, we found that ML models can reach comparable performance (up to 65% accuracy) while maintaining low inference cost. This presents a practical trade-off between complexity and accuracy, especially valuable in edge applications or limited-resource environments.
 
  ### 3. Effect of Delta MFCC
 
